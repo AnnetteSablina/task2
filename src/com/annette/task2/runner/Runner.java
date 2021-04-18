@@ -5,6 +5,7 @@ import com.annette.task2.basket.Basket;
 import com.annette.task2.basket.BasketService;
 import com.annette.task2.console.EnterFromConsole;
 import com.annette.task2.logic.ColorLogic;
+import com.annette.task2.utility.NullException;
 
 public class Runner {
     public static void main (String ... args){
@@ -15,8 +16,12 @@ public class Runner {
         basket.addBallIntoBasket(ball);
         basket.addBallIntoBasket(ball2);
         basket.addBallIntoBasket(ball3);
-        System.out.println(BasketService.countCurrentBallColorInBasket(EnterFromConsole.fillColor(),basket
-        ) + " " + BasketService.countBasketWeight(basket));
+        try {
+            System.out.println(BasketService.countCurrentBallColorInBasket(EnterFromConsole.fillColor(),basket
+            ) + " " + BasketService.countBasketWeight(basket));
+        } catch (NullException e) {
+            e.printStackTrace();
+        }
         basket.removeBall(ball);
         System.out.println(basket);
     }
