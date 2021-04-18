@@ -13,7 +13,7 @@ public class EnterValue {
         }
         int value = scanner.nextInt();
         if (mode == Mode.POSITIVE && value < 0)  throw new NegativeException("You entered negative value");
-        if (mode == Mode.POSITIVE_NOT_ZERO && value == 0) throw new ZeroException("Value must be positive and not zero");
+        if (mode == Mode.POSITIVE_NOT_ZERO && value <= 0) throw new ZeroException("Value must be positive and not zero");
         return value;
     }
 }

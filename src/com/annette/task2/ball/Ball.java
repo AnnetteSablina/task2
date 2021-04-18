@@ -1,9 +1,6 @@
 package com.annette.task2.ball;
 
-import com.annette.task2.logic.ColorLogic;
-import com.annette.task2.logic.ValueLogic;
 
-import java.util.Objects;
 
 public class Ball {
     private Color color;
@@ -12,11 +9,6 @@ public class Ball {
     public Ball (Color color,int weight){
         this.color = color;
         this.weight = weight;
-    }
-    public static Ball enterBallFiends(){
-       Color color = ColorLogic.fillColor();
-       int weight = ValueLogic.EnterPositiveNotZeroValue("Enter the weight");
-       return new Ball(color,weight);
     }
 
     @Override
@@ -36,15 +28,7 @@ public class Ball {
 
     @Override
     public int hashCode() {
-        return Objects.hash(color, weight);
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
-    public void setColor(Color color) {
-        this.color = color;
+        return color.hashCode() + weight * 31 ;
     }
 
     public Color getColor() {

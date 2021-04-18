@@ -2,14 +2,12 @@ package com.annette.task2.basket;
 
 
 import com.annette.task2.ball.Ball;
-import com.annette.task2.ball.BallLogic;
-import com.annette.task2.ball.Color;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 
-public class Basket implements BasketLogic, BallLogic {
+public class Basket  {
     private ArrayList<Ball> basket;
 
     public Basket() {
@@ -20,7 +18,7 @@ public class Basket implements BasketLogic, BallLogic {
         this.basket = new ArrayList<Ball>(Arrays.asList(balls));
     }
 
-    public ArrayList<Ball> getBasket() {
+    public ArrayList<Ball> getBasketAsList() {
         return new ArrayList<>(this.basket);
     }
 
@@ -37,35 +35,20 @@ public class Basket implements BasketLogic, BallLogic {
         return basketContent.toString();
     }
 
-    @Override
+
     public void addBallIntoBasket(Ball ball) {
         basket.add(ball);
     }
 
-    @Override
+
     public void removeLastBall() {
         basket.remove(basket.size() - 1);
     }
 
-    @Override
+
     public void removeBall(Ball ball) {
         basket.remove(ball);
     }
 
-    @Override
-    public int countCurrentBallColor(Color color) {
-        int count = 0;
-        for (var ball : basket) {
-            if (ball.getColor() == color) count++;
 
-        }
-        return count;
-    }
-
-    @Override
-    public int countBasketWeight() {
-        int sumBallWeight = 0;
-        for (var ball : basket) sumBallWeight = sumBallWeight + ball.getWeight();
-        return sumBallWeight;
-    }
 }
